@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+  --container-main: 1280px;
+}
