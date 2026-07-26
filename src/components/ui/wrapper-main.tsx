@@ -1,3 +1,4 @@
+import {cn} from "@/lib/cn";
 import React, {forwardRef} from "react";
 
 interface WrapperMainProps {
@@ -8,7 +9,11 @@ interface WrapperMainProps {
 const WrapperMain = forwardRef<HTMLDivElement, WrapperMainProps>(
   ({className, children, ...props}, ref) => {
     return (
-      <div ref={ref} {...props} className={className}>
+      <div
+        ref={ref}
+        {...props}
+        className={cn("container mx-auto xl:w-main h-full", className)}
+      >
         {children}
       </div>
     );
