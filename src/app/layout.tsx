@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import {Poppins} from "next/font/google";
 import "./globals.css";
+import SiteLayout from "@/layouts/site-layout";
 
 const poppinsFonts = Poppins({
   subsets: ["latin"],
@@ -71,7 +72,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppinsFonts.className} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="h-full flex flex-col bg-orange-50">
+        <SiteLayout>{children}</SiteLayout>
+      </body>
     </html>
   );
 }
