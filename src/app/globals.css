@@ -2,4 +2,5 @@
 
 @theme {
   --container-main: 1280px;
+  --shadow-dropdown: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
