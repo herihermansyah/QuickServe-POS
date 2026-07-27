@@ -13,7 +13,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         {...props}
         className={cn(
-          "flex flex-col gap-3 rounded-md p-2 shadow-dropdown",
+          "flex flex-col gap-3 rounded-md p-2 shadow-dropdown bg-white",
           className,
         )}
       >
@@ -73,4 +73,20 @@ const CardFooter = forwardRef<HTMLDivElement, CardProps>(
 
 CardFooter.displayName = "CardFooter";
 
-export {Card, CardHeader, CardTitle, CardFooter};
+const CardContent = forwardRef<HTMLDivElement, CardProps>(
+  ({className, children, ...props}, ref) => {
+    return (
+      <div
+        ref={ref}
+        {...props}
+        className={cn("flex flex-col gap-2", className)}
+      >
+        {children}
+      </div>
+    );
+  },
+);
+
+CardContent.displayName = "CardContent";
+
+export {Card, CardHeader, CardTitle, CardFooter, CardContent};
