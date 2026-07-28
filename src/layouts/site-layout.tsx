@@ -7,7 +7,7 @@ const SiteLayout = ({children}: {children: React.ReactNode}) => {
       <header className="bg-green-900 shrink-0 py-3 px-4 xl:px-0 shadow-dropdown">
         <Header />
       </header>
-      <main className="grow overflow-y-auto my-5 px-4 xl:px-0">{children}</main>
+      <main className="grow my-5 px-4 overflow-hidden xl:px-0">{children}</main>
     </div>
   );
 };
