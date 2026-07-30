@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import OrderPage from "@/components/order-page";
 
 const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+  return <OrderPage />;
+};
 
-export default page
+export default page;
