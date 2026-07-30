@@ -44,7 +44,7 @@ const CategoryContent = () => {
   };
 
   return (
-    <div className="bg-white py-2 px-5 rounded-md  flex items-center gap-3">
+    <div className="bg-white shadow-dropdown py-2 px-5 rounded-md flex items-center gap-3 print:hidden">
       {isLoading ? (
         <div className="flex items-center gap-3">
           {Array.from({length: 10}).map((_, i) => (
@@ -55,7 +55,7 @@ const CategoryContent = () => {
           ))}
         </div>
       ) : (
-        <div className="bg-white py-2 px-5 rounded-md  flex items-center gap-3">
+        <>
           <button
             onClick={() => handleCategoryClick("")}
             className={`py-2 px-3 rounded-md border text-xs capitalize transition w-fit whitespace-nowrap ${
@@ -69,9 +69,8 @@ const CategoryContent = () => {
           <div className="w-1 h-8 bg-gray-300" />
 
           <Swiper
-            className="w-full relative"
+            className="w-full"
             slidesPerView={"auto"}
-            loop={true}
             mousewheel={{forceToAxis: true}}
             spaceBetween={12}
             modules={[Pagination, Mousewheel]}
@@ -95,7 +94,7 @@ const CategoryContent = () => {
               );
             })}
           </Swiper>
-        </div>
+        </>
       )}
     </div>
   );
