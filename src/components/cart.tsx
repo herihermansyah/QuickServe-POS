@@ -3,8 +3,6 @@ import React from "react";
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "./ui/card";
 import {CiTrash} from "react-icons/ci";
 import Button from "./ui/button";
-import {useRouter} from "next/navigation";
-import {AiOutlineLoading3Quarters} from "react-icons/ai";
 
 const cartData = Array.from({length: 5}).map((_, i) => ({
   id: 1 + i,
@@ -14,8 +12,6 @@ const cartData = Array.from({length: 5}).map((_, i) => ({
 }));
 
 const Cart = () => {
-  const [isLoading, setIsloading] = React.useState(false);
- 
   return (
     <div className="h-full overflow-hidden flex flex-col gap-5">
       <Card className="flex-1 min-h-0 overflow-hidden p-0">
@@ -80,21 +76,8 @@ const Cart = () => {
         </CardFooter>
       </Card>
 
-      <Button
-        disabled={isLoading}
-        size={"md"}
-        className="justify-center"
-      >
-        {isLoading ? (
-          <div className="flex items-center justify-center gap-5">
-            <span className="animate-spin">
-              <AiOutlineLoading3Quarters />
-            </span>
-            <span>loading....</span>
-          </div>
-        ) : (
-          "processs"
-        )}
+      <Button size={"md"} className="justify-center">
+        Process
       </Button>
     </div>
   );
