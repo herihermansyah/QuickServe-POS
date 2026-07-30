@@ -13,7 +13,7 @@ const OrderPage = () => {
   const category = searchParams.get("category") || "";
   const debouncedSearch = useDebounce(rawSearch, 500);
   return (
-    <WrapperMain className="grid  md:grid-cols-[1fr_320px] gap-5 h-full overflow-hidden">
+    <WrapperMain className="grid lg:grid-cols-[1fr_320px] lg:gap-5 h-full overflow-hidden">
       <div className="flex flex-col gap-2 h-full min-w-0 overflow-hidden">
         <ProductCard searchQuery={debouncedSearch} categoryQuery={category} />
         <CategoryCollection />
