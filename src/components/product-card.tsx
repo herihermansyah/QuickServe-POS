@@ -9,6 +9,7 @@ import {getProduct} from "@/service/product";
 import {IoIosStar} from "react-icons/io";
 import {calculateDiscount, formatCurrency} from "@/utils/format";
 import {getProductByCategory} from "@/service/category";
+import {useCartStore} from "@/store/use-cart-store";
 interface ProductCardProps {
   searchQuery?: string;
   categoryQuery?: string;
@@ -43,6 +44,8 @@ const ProductCard = ({searchQuery, categoryQuery}: ProductCardProps) => {
       item.title.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }, [product, searchQuery]);
+
+  const addToCart = useCartStore((state) => state.addToCart);
 
   return (
     <div className="bg-white p-2 h-full rounded-md shadow-dropdown overflow-y-auto">
@@ -113,6 +116,7 @@ const ProductCard = ({searchQuery, categoryQuery}: ProductCardProps) => {
                 </CardHeader>
                 <CardFooter>
                   <Button
+                    onClick={() => addToCart({newProduct: product})}
                     size={"sm"}
                     aria-label="button add to cart"
                     className="w-full items-center justify-center"
