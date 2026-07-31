@@ -1,4 +1,5 @@
 export const calculateDiscount = (price: number, discount: number) => {
+  if (!discount || discount <= 0) return price;
   const discountAmount = price * (discount / 100);
   const finalPrice = price - discountAmount;
   return finalPrice;
