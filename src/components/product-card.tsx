@@ -48,7 +48,7 @@ const ProductCard = ({searchQuery, categoryQuery}: ProductCardProps) => {
   const addToCart = useCartStore((state) => state.addToCart);
 
   return (
-    <div className="bg-white p-2 h-full rounded-md shadow-dropdown overflow-y-auto">
+    <div className="bg-white p-2 h-full rounded-md shadow-dropdown overflow-y-auto print:hidden">
       {isLoading ? (
         // loading skeleton
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
