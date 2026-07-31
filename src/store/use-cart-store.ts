@@ -30,9 +30,9 @@ export const useCartStore = create<UserCartStoreType>()(
   persist(
     (set, get) => ({
       cartItems: [],
-      //   menbahkan product ke order list
-      //  jika ada product yang sama maka quantity akan bertambah
-      //   jika tidak ada product yang sama maka product akan di tambahkan
+      // add product to order list
+      // if product exist so quantity will be increase
+      // if product not exist so product will be added
       addToCart: ({newProduct}) => {
         set((state) => {
           const isExist = state.cartItems.find(
@@ -73,7 +73,7 @@ export const useCartStore = create<UserCartStoreType>()(
           };
         });
       },
-      //   menghapus cart berdasar kan id product
+      //   delete cart product from id
       romoveFromCart(id) {
         set((state) => {
           return {
@@ -82,7 +82,7 @@ export const useCartStore = create<UserCartStoreType>()(
         });
       },
 
-      //   menambah quantity product dan mnghitung total harga dengan qunaity yang baru
+      // add quantity and calculate total price with new quantity
       incrementQuantity(id) {
         set((state) => ({
           cartItems: state.cartItems.map((item) => {
@@ -99,8 +99,8 @@ export const useCartStore = create<UserCartStoreType>()(
         }));
       },
 
-      //   mengurangi qunaity product dan menghapus jika product sama dengan 1,
-      // dan menghitung total harga dengan quantity yang baru
+      // decrease quantity and delete if product is equal to 1
+      // and calculate total price with new quantity
       decrementQuantity(id) {
         set((state) => {
           const targetItems = state.cartItems.find(
@@ -134,8 +134,7 @@ export const useCartStore = create<UserCartStoreType>()(
         set({cartItems: []});
       },
 
-      //   menghitung subtotal, total discount, tax amount, dan grand total
-
+      // get summery cart , calculate subtotal, total discount, tax amount, and grand total
       getSummeryCart() {
         const {cartItems} = get();
         const subTotal = cartItems.reduce(
